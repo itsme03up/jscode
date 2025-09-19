@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript学習サイト</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>JavaScript学習サイト</h1>
+            <ul>
+                <li><a href="#basics">基礎</a></li>
+                <li><a href="#functions">関数</a></li>
+                <li><a href="#objects">オブジェクト</a></li>
+                <li><a href="#practice">練習問題</a></li>
+                <li><a href="advanced.html">上級編</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>JavaScriptを楽しく学ぼう</h2>
+            <p>インタラクティブなコード例と練習問題で、JavaScriptをマスターしましょう。</p>
+        </section>
+
+        <section id="basics" class="lesson-section">
+            <h2>基礎編</h2>
+            <div class="lesson-card">
+                <h3>変数と型</h3>
+                <div class="code-example">
+                    <pre><code id="variables-example">// 変数の宣言
+let name = "太郎";
+const age = 25;
+var city = "東京";
+
+console.log(name, age, city);</code></pre>
+                    <button onclick="runCode('variables-example')">実行</button>
+                </div>
+                <div class="output" id="variables-example-output"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>        <s
+ection id="functions" class="lesson-section">
+            <h2>関数編</h2>
+            <div class="lesson-card">
+                <h3>高階関数</h3>
+                <div class="code-example">
+                    <pre><code id="higher-order-example">// 高階関数の例
+const numbers = [1, 2, 3, 4, 5];
+
+// map: 各要素を変換
+const doubled = numbers.map(n => n * 2);
+console.log("2倍:", doubled);
+
+// filter: 条件に合う要素を抽出
+const evens = numbers.filter(n => n % 2 === 0);
+console.log("偶数:", evens);
+
+// reduce: 配列を単一の値に集約
+const sum = numbers.reduce((acc, n) => acc + n, 0);
+console.log("合計:", sum);</code></pre>
+                    <button onclick="runCode('higher-order-example')">実行</button>
+                </div>
+                <div class="output" id="higher-order-example-output"></div>
+            </div>
+        </section>
+
+        <section id="objects" class="lesson-section">
+            <h2>オブジェクト編</h2>
+            <div class="lesson-card">
+                <h3>オブジェクトとクラス</h3>
+                <div class="code-example">
+                    <pre><code id="objects-example">// オブジェクトリテラル
+const person = {
+    name: "田中太郎",
+    age: 30,
+    greet() {
+        return `私の名前は${this.name}です。${this.age}歳です。`;
+    }
+};
+
+console.log(person.greet());
+
+// クラス
+class Animal {
+    constructor(name, type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    speak() {
+        return `${this.name}は${this.type}です。`;
+    }
+}
+
+const dog = new Animal("ポチ", "犬");
+console.log(dog.speak());</code></pre>
+                    <button onclick="runCode('objects-example')">実行</button>
+                </div>
+                <div class="output" id="objects-example-output"></div>
+            </div>
+        </section>
+
+        <section id="practice" class="lesson-section">
+            <h2>練習問題</h2>
+            <div class="lesson-card">
+                <h3>チャレンジ: FizzBuzz</h3>
+                <p>1から20までの数字で、3の倍数なら"Fizz"、5の倍数なら"Buzz"、両方の倍数なら"FizzBuzz"を表示してください。</p>
+                <div class="code-example">
+                    <pre><code id="fizzbuzz-example">// ここにコードを書いてください
+for (let i = 1; i <= 20; i++) {
+    if (i % 15 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+        console.log("Fizz");
+    } else if (i % 5 === 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}</code></pre>
+                    <button onclick="runCode('fizzbuzz-example')">実行</button>
+                </div>
+                <div class="output" id="fizzbuzz-example-output"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 JavaScript学習サイト. すべての権利を保有します。</p>
+    </footer>

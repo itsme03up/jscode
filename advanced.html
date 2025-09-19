@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript上級編 - JavaScript学習サイト</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="index.html" style="color: white; text-decoration: none;">JavaScript学習サイト</a></h1>
+            <ul>
+                <li><a href="index.html">基礎に戻る</a></li>
+                <li><a href="#async">非同期処理</a></li>
+                <li><a href="#modules">モジュール</a></li>
+                <li><a href="#dom">DOM操作</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>JavaScript上級編</h2>
+            <p>より実践的なJavaScriptの機能を学びましょう。</p>
+        </section>
+
+        <section id="async" class="lesson-section">
+            <h2>非同期処理</h2>
+            <div class="lesson-card">
+                <h3>Promise と async/await</h3>
+                <div class="code-example">
+                    <pre><code id="async-example">// Promise の例
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// async/await を使った非同期処理
+async function asyncExample() {
+    console.log("開始");
+    await delay(1000);
+    console.log("1秒後");
+    await delay(1000);
+    console.log("さらに1秒後");
+    return "完了！";
+}
+
+asyncExample().then(result => console.log(result));</code></pre>
+                    <button onclick="runAdvancedCode('async-example')">実行</button>
+                </div>
+                <div class="output" id="async-example-output"></div>
+            </div>
+        </section>
+
+        <section id="dom" class="lesson-section">
+            <h2>DOM操作</h2>
+            <div class="lesson-card">
+                <h3>要素の作成と操作</h3>
+                <div id="demo-area" style="border: 2px dashed #ccc; padding: 1rem; margin: 1rem 0; min-height: 100px;">
+                    <p>ここにDOM操作の結果が表示されます</p>
+                </div>
+                <div class="code-example">
+                    <pre><code id="dom-example">// DOM要素を作成して追加
+const demoArea = document.getElementById('demo-area');
+demoArea.innerHTML = ''; // クリア
+
+const title = document.createElement('h4');
+title.textContent = '動的に作成されたタイトル';
+title.style.color = '#667eea';
+
+const list = document.createElement('ul');
+const items = ['項目1', '項目2', '項目3'];
+
+items.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    li.style.padding = '0.5rem';
+    li.style.cursor = 'pointer';
+    li.addEventListener('click', () => {
+        li.style.backgroundColor = '#e6fffa';
+        console.log(`${item} がクリックされました`);
+    });
+    list.appendChild(li);
+});
+
+demoArea.appendChild(title);
+demoArea.appendChild(list);</code></pre>
+                    <button onclick="runAdvancedCode('dom-example')">実行</button>
+                </div>
+                <div class="output" id="dom-example-output"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="advanced.js"></script>
+</body>
+</html>
